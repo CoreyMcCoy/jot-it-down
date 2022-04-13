@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Jot It Down</title>
+        <script src="https://kit.fontawesome.com/b220f567c7.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1>All of your start-up ideas in one place.</h1>
+            </header>
+            <p>Keep track of every idea from ideation to launch.</p>
+            <form class="add-items">
+                <input type="text" name="item" class="item-input" placeholder="What would you like to add?" maxlength="250" />
+                <input id="form-button" name="form-button" type="submit" value="Jot it down" />
+            </form>
+            <ul class="notebook" id="edit"></ul>
+
+            <p>Toggle an idea if it's super awesome or important...like 🌮.</p>
+            <p>
+                Or, <span><i class="fas fa-times"></i></span> it off your list.
+            </p>
+        </div>
+
+        <script src="./app.js"></script>
+    </body>
+</html>
