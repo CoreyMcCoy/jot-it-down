@@ -29,8 +29,7 @@ html {
 
 .wrapper {
     padding: 20px;
-    width: 500px;
-    max-width: 750px;
+    width: 45vw;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: -3px 3px 20px 3px rgba(27, 27, 27, 0.2);
     border-radius: 5px;
@@ -43,7 +42,7 @@ header {
 h1 {
     text-align: center;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: clamp(2rem, 25px, 1.25rem);
     font-weight: 600;
 }
 
@@ -75,13 +74,13 @@ p {
     display: none;
 }
 
-.notebook input + label:before {
+.notebook input + label::before {
     content: "⬜";
     font-size: 0.9em;
     margin-right: 10px;
 }
 
-.notebook input:checked + label:before {
+.notebook input:checked + label::before {
     content: "🌮";
 }
 
@@ -124,9 +123,39 @@ i.fas {
     pointer-events: none;
 }
 
+span.footer-text::after {
+    content: "⬜";
+    font-size: 0.9em;
+}
+
 span > i.fas::before {
     content: "✖";
     color: rgb(163, 40, 9);
     font-size: 1.25rem;
     pointer-events: none;
+}
+
+
+@media (max-width: 768px) {
+    html {
+        font-size: 0.9rem;
+    }
+
+    .wrapper {
+        width: 80vw;
+    }
+
+    .add-items {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .add-items [name="item"] {
+        margin-right: 0;
+        flex: 1 0 100%;
+    }
+
+    .add-items [name="form-button"] {
+        flex: 1 0 100%;
+    }
+
 }
