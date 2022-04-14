@@ -1,54 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
     --color-primary: #111439;
     --color-bg-white: #fcfcfc;
     --text-color-dark: #111439;
     --text-color-white: #fff;
+    --accent-color: #ffeb95;
+    --accent-color-hover: #daaa01;
     --modal-overlay-bg: rgba(0, 0, 0, 0.65);
-}
-
-html {
-    box-sizing: border-box;
-    background: url("bg.png") center no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: 'Rubik', sans-serif;
-    color: var(--color-primary);
 }
 
 *,
 *:before,
 *:after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    background: url("images/bg.png") center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    color: var(--text-color-dark);
+    scroll-behavior: smooth;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0 5rem;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 3rem 1rem 2rem;
+    margin-bottom: 5rem;
+    max-height: 50px;
+    z-index: 1;
+}
+
+.navbar-brand {
+    width: 150px;
+    height: 50px;
+}
+
+header {
+    padding: 0 1rem;
+    margin-bottom: 3.5rem;
+}
+
+header p {
+    font-size: 1.15rem;
+    width: 50%;
+    margin: 0 auto;
+}
+
+h1 {
+    padding-bottom: 1rem;
+    text-align: center;
+    font-size: clamp(4.25rem, 2vw, 5rem);
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+p {
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 .wrapper {
-    padding: 20px;
+    margin: 0 auto;
+    padding: 2rem;
     width: 45vw;
     background: rgba(255, 255, 255, 0.95);
     box-shadow: -3px 3px 20px 3px rgba(27, 27, 27, 0.2);
     border-radius: 5px;
 }
 
-header {
-    margin-bottom: 15px;
+.add-items {
+    display: flex;
+    margin: 2rem 0;
 }
 
-h1 {
-    text-align: center;
-    margin: 0;
-    font-size: clamp(2rem, 25px, 1.25rem);
-    font-weight: 700;
+.add-items [name="item"] {
+    flex: 2;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
 }
 
-p {
-    font-weight: 300;
-    letter-spacing: 1px;
+.add-items [name="form-button"] {
+    flex: 1;
+    background-color: var(--color-primary);
+    color: var(--text-color-white);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.add-items input {
+    padding: 10px;
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+p.form-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 0 1rem;
 }
 
 .notebook {
@@ -60,10 +142,9 @@ p {
 
 .notebook li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
-    font-weight: 100;
+    padding: 15px 0;
+    font-weight: 400;
     display: flex;
-    letter-spacing: 1px;
 }
 
 .notebook label {
@@ -86,41 +167,6 @@ p {
     content: "🌮";
 }
 
-.add-items {
-    display: flex;
-    margin-top: 20px;
-}
-
-.add-items [name="item"] {
-    flex: 2;
-    font-size: 0.9rem;
-    margin-right: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    font-family: 'Rubik', sans-serif;
-    letter-spacing: 1px;
-}
-
-.add-items [name="form-button"] {
-    flex: 1;
-    background-color: var(--color-primary);
-    color: var(--text-color-white);
-    font-family: 'Rubik', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-.add-items input {
-    padding: 10px;
-    outline: 0;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-#btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-}
 
 i.fas {
     color: rgb(163, 40, 9);
@@ -128,7 +174,7 @@ i.fas {
     pointer-events: none;
 }
 
-span.footer-text::after {
+span.form-span-text::after {
     content: "⬜";
     font-size: 0.9em;
 }
@@ -140,14 +186,72 @@ span > i.fas::before {
     pointer-events: none;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    height: 70px;
+    width: 100%;
+}
+
+
+footer > p {
+    color: var(--text-color-dark);
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--text-color-dark);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--accent-color-hover);
+}
+
+
 /* Media Queries */
+
+@media (max-width: 992px) {
+    .wrapper {
+        width: 70vw;
+    }
+
+    header p {
+        width: 60%;
+    }
+
+    h1 {
+        font-size: clamp(3.5rem, 1.5vw, 4rem);
+    }
+}
+
 @media (max-width: 768px) {
     html {
         font-size: 0.9rem;
     }
 
+    .navbar {
+        padding: 4rem 2rem;
+    }
+
+    header p {
+        font-size: 1.15rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 1.5vw, 3.5rem);
+    }
+
+
     .wrapper {
-        width: 80vw;
+        width: 90vw;
+        padding: 1rem;
     }
 
     .add-items {
@@ -162,5 +266,8 @@ span > i.fas::before {
     .add-items [name="form-button"] {
         flex: 1 0 100%;
     }
+
+
+
 
 }

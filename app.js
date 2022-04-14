@@ -5,7 +5,15 @@ const items = JSON.parse(localStorage.getItem('items')) || [];
 
 function addItem(e) {
     e.preventDefault();
-    if (inputItems.value === '') return;
+    if (inputItems.value === '') {
+        alert('Oops! You forgot to add an item!');
+        inputItems.style.border = '1px solid red';
+        inputItems.focus();
+        inputItems.addEventListener('click', () => {
+            inputItems.style.border = '1px solid #ccc';
+        });
+        return;
+    }
     const text = this.querySelector('input[name=item]').value;
     const item = {
         text,
